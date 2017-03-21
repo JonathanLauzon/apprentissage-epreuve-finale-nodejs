@@ -42,6 +42,23 @@ app.get('/provinces', (req, res) => {
 		console.log( data );
 		res.render('index.ejs', {texte: JSON.parse(data)});
 	});
-	
-	
+})
+
+// Routage de l'adresse '/ajouter'
+app.get('/ajouter', function (req, res) {
+	// Création d'un document à ajouter à la base de données et récupération des informations du formulaire
+	var nouvelleProvince = {
+		code:"QC",
+		nom:"Québec",
+		capital:"Québec",
+		nombre: Math.floor(Math.random() * 200) + 1
+	};
+	console.log('Ajout');
+	// Envoi du document à la base de données
+	db.collection('provinces').save(nouvelleProvince, (err, result) => {
+		if (err) return console.log(err);
+		console.log('sauvegarder dans la BD');
+		// Renvoyer à l'adresse racine
+		res.redirect('/');
+	});
 })
