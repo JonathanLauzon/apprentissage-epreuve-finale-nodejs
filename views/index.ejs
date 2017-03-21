@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 <title>Épreuve finale volet II - Node.js, Express, MongoDB, EJS</title>
 </head>
 <body>
-  <div class='global'>
-  	  <header>
-  	  	<h1>Épreuve finale volet II - Programmation et veille technologique</h1>
-  	  	<h2>Node.js, Express, MongoDB, EJS</h2>
-  	  	<nav>
+	<div class='global'>
+			<header>
+				<h1>Épreuve finale volet II - Programmation et veille technologique</h1>
+				<h2>Node.js, Express, MongoDB, EJS</h2>
+				<nav>
 
-  	  		<a href="http://127.0.0.1:8081/fichier">1-Fichier</a>
-  	  		<a href="http://127.0.0.1:8081/provinces">2-Provinces</a>
-  	  		<a href="http://127.0.0.1:8081/collection">3-Collection</a>
-  	  		<a href="http://127.0.0.1:8081/ajouter">4-Ajouter un document</a>
-  	  		<a href="http://127.0.0.1:8081/detruire">5-Détruire</a>
-  	  		<a href="http://127.0.0.1:8081/plusieurs">6-Ajouter plusieurs</a>
-  	  	<nav>
-  	  </header>
-  	  <main>
-		  <table class="tableau">
-        ----------------------------------------
-		  </table>
-	  </main>
-	  <footer>
-	  <p>Epreuve finale volet II - Programmation et veille technologique - TIM - Collège de Maisonneuve</p>
-	  </footer>
-  </div>
+					<a href="http://127.0.0.1:8081/fichier">1-Fichier</a>
+					<a href="http://127.0.0.1:8081/provinces">2-Provinces</a>
+					<a href="http://127.0.0.1:8081/collection">3-Collection</a>
+					<a href="http://127.0.0.1:8081/ajouter">4-Ajouter un document</a>
+					<a href="http://127.0.0.1:8081/detruire">5-Détruire</a>
+					<a href="http://127.0.0.1:8081/plusieurs">6-Ajouter plusieurs</a>
+				<nav>
+			</header>
+			<main>
+			<table class="tableau">
+				<% if (texte) { %>
+					<tr>
+						<th>Code</th>
+						<th>Nom</th>
+						<th>Capitale</th>
+					</tr>
+					<% for (var i = 0; i < texte.length; i++) { %>
+						<tr>
+							<td><%= texte[i].code %></td>
+							<td><%= texte[i].nom %></td>
+							<td><%= texte[i].capital %></td>
+						</tr>
+					<% } %>
+				<% } %>
+			</table>
+		</main>
+		<footer>
+		<p>Epreuve finale volet II - Programmation et veille technologique - TIM - Collège de Maisonneuve</p>
+		</footer>
+	</div>
 </body>
 </html>

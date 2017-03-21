@@ -22,17 +22,26 @@ MongoClient.connect('mongodb://127.0.0.1:27017/ef2', (err, database) => {
 
 // Routage de l'adresse '/' pour l'affichage de la page html du template
 app.get('/',  (req, res) => {
-  console.log('la route route get / = ' + req.url)
-  var cursor = db.collection('adresses').find().toArray(function(err, resultat){
-    if (err) return console.log(err);
-    // Appel de la page ejs et distribution des informations de la base de données à celle-ci
-    res.render('index.ejs', {liste: resultat});
-  })
+	console.log('la route route get / = ' + req.url)
+	var cursor = db.collection('adresses').find().toArray(function(err, resultat){
+		if (err) return console.log(err);
+		// Appel de la page ejs et distribution des informations de la base de données à celle-ci
+		res.render('index.ejs', {liste: resultat});
+	});
 })
 
 app.get('/fichier', (req, res) => {
 	fs.readFile( __dirname + "/public/text/" + "collection_provinces.json", 'utf8', function (err, data) {
-       console.log( data );
-       res.end(data);
-   });
+		console.log( data );
+		res.end(data);
+	});
+})
+
+app.get('/provinces', (req, res) => {
+	fs.readFile( __dirname + "/public/text/" + "collection_provinces.json", 'utf8', function (err, data) {
+		console.log( data );
+		res.render('index.ejs', {texte: JSON.parse(data)});
+	});
+	
+	
 })
