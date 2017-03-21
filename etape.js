@@ -11,7 +11,7 @@ app.use(bodyParser.json())  // pour traiter les données JSON
 
 var db; // Création de la base de données du serveur
 // Connexion à la base de données du serveur
-MongoClient.connect('mongodb://127.0.0.1:27017/ef2', (err, database) => {
+MongoClient.connect('mongodb://127.0.0.1:27017/carnet-adresse', (err, database) => {
 	if (err) return console.log(err)
 	// Récupération de la base de données sur le serveur
 	db = database
@@ -23,7 +23,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017/ef2', (err, database) => {
 // Routage de l'adresse '/' pour l'affichage de la page html du template
 app.get('/',  (req, res) => {
 	console.log('la route route get / = ' + req.url)
-	var cursor = db.collection('adresses').find().toArray(function(err, resultat){
+	var cursor = db.collection('provinces').find().toArray(function(err, resultat){
 		if (err) return console.log(err);
 		// Appel de la page ejs et distribution des informations de la base de données à celle-ci
 		res.render('index.ejs', {liste: resultat});
