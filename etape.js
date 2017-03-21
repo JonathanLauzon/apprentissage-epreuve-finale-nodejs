@@ -30,6 +30,10 @@ app.get('/',  (req, res) => {
 	});
 })
 
+app.get('/collection',  (req, res) => {
+	res.redirect('/');
+});
+
 app.get('/fichier', (req, res) => {
 	fs.readFile(__dirname + "/public/text/" + "collection_provinces.json", 'utf8', function (err, data) {
 		console.log(data);
