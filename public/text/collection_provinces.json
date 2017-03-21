@@ -1,0 +1,69 @@
+		[	
+			{
+			 "code": "NF" ,
+			 "nom" : "Terre-Neuve",
+			 "capital" : "St-john"
+			},
+			{
+			  "code": "IPE",
+			  "nom" : "Ile du Prince-Édouard ",
+			  "capital" : "Charlottetown"
+			},
+			{
+			  "code": "NS",
+			  "nom" : "Nouvelle Écosse",
+			  "capital" : "Halifax"
+			},			
+			{
+			  "code": "NB",
+			  "nom" : "Nouveau-Brunswick",
+			  "capital" : "Fredericton"
+			},
+			{
+			"code": "QC",  
+			"nom" : "Québec",
+			"capital" : "Québec"
+			},
+	 		{
+			"code": "ON", 
+			"nom" : "Ontario",
+			"capital" : "Toronto"
+			},
+	 		{
+			"code": "MA", 
+			"nom" : "Manitoba",
+			"capital" : "Winipeg"
+			},
+	 		{
+			"code": "SK", 
+			"nom" : "Saskatshewan",
+			"capital" : "Regina"
+			},
+	 		{
+			"code": "AL", 
+			"nom" : "Alberta",
+			"capital" : "Edmonton"
+			},
+			{
+			  "code": "BC",
+			  "nom" : "Colombie Britannique",
+			  "capital" : "Victoria"
+			},
+			{
+			  "code": "NU",
+			  "nom" : "Nunavut",
+			  "capital" : "Igaluit"
+			},
+			{
+			  "code": "YT",
+			  "nom" : "Yukon",
+			  "capital" : "Whitehorse"
+			},
+			{
+			  "code": "NT",
+			  "nom" : "Territoire du Nord-Ouest",
+			  "capital" : "Yellowknife"
+			}
+
+		]	
+
