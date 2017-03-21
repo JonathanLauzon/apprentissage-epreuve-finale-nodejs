@@ -57,7 +57,19 @@ app.get('/ajouter', function (req, res) {
 	// Envoi du document à la base de données
 	db.collection('provinces').save(nouvelleProvince, (err, result) => {
 		if (err) return console.log(err);
-		console.log('sauvegarder dans la BD');
+		console.log('Ajouter à la collection');
+		// Renvoyer à l'adresse racine
+		res.redirect('/');
+	});
+})
+
+// Routage de l'adresse '/detruire'
+app.get('/detruire', function (req, res) {
+	console.log('Destruction');
+	// Suppression du document correspondant à l'id fourni de la collection
+	db.collection('provinces').remove({}, (err, result) => {
+		if (err) return console.log(err);
+		console.log('Détruire tous les documents de la collection');
 		// Renvoyer à l'adresse racine
 		res.redirect('/');
 	});
