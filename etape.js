@@ -31,15 +31,15 @@ app.get('/',  (req, res) => {
 })
 
 app.get('/fichier', (req, res) => {
-	fs.readFile( __dirname + "/public/text/" + "collection_provinces.json", 'utf8', function (err, data) {
-		console.log( data );
+	fs.readFile(__dirname + "/public/text/" + "collection_provinces.json", 'utf8', function (err, data) {
+		console.log(data);
 		res.end(data);
 	});
 })
 
 app.get('/provinces', (req, res) => {
-	fs.readFile( __dirname + "/public/text/" + "collection_provinces.json", 'utf8', function (err, data) {
-		console.log( data );
+	fs.readFile(__dirname + "/public/text/" + "collection_provinces.json", 'utf8', function (err, data) {
+		console.log(data);
 		res.render('index.ejs', {texte: JSON.parse(data)});
 	});
 })
@@ -73,4 +73,21 @@ app.get('/detruire', function (req, res) {
 		// Renvoyer à l'adresse racine
 		res.redirect('/');
 	});
+})
+
+// Routage de l'adresse '/ajouter-plusieurs'
+app.get('/ajouter-plusieurs', function (req, res) {
+	// Création d'un document à ajouter à la base de données et récupération des informations du formulaire
+	fs.readFile(__dirname + "/public/text/" + "collection_provinces.json", 'utf8', function (err, data) {
+		console.log(data);
+		console.log('Ajouter plusieurs');
+		// Envoi du document à la base de données
+		db.collection('provinces').insertMany(JSON.parse(data), (err, result) => {
+			if (err) return console.log(err);
+			console.log('Ajouter à la collection');
+			// Renvoyer à l'adresse racine
+			res.redirect('/');
+		});
+	});
+	
 })
