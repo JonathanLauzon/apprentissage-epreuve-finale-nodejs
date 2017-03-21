@@ -22,7 +22,8 @@
 			</header>
 			<main>
 			<table class="tableau">
-				<% if (texte) { %>
+				<!-- Tableau propre à la route « /province » -->
+				<% if (typeof texte != 'undefined') { %>
 					<tr>
 						<td>Code</td>
 						<td>Nom</td>
@@ -33,6 +34,25 @@
 							<td><%= texte[i].code %></td>
 							<td><%= texte[i].nom %></td>
 							<td><%= texte[i].capital %></td>
+						</tr>
+					<% } %>
+				<% } %>
+				<!-- Tableau propre à la route de base « / » -->
+				<% if (typeof liste != 'undefined') { %>
+					<tr>
+						<td>Code</td>
+						<td>Nom</td>
+						<td>Capitale</td>
+						<td>Nombre aléatoire</td>
+						<td>Id</td>
+					</tr>
+					<% for (var i = 0; i < liste.length; i++) { %>
+						<tr>
+							<td><%= liste[i].code %></td>
+							<td><%= liste[i].nom %></td>
+							<td><%= liste[i].capital %></td>
+							<td><%= liste[i].nombre %></td>
+							<td><%= liste[i]._id %></td>
 						</tr>
 					<% } %>
 				<% } %>
